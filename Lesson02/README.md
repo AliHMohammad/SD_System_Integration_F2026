@@ -33,4 +33,4 @@
 [          - ArXiv(http://export.arxiv.org/api/query?search_query=all:AI)]: #
 [      - JSON file: albums.json(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/albums.json)]: #
 [- Do the following exercises:]: #
-[  - JSON and Text API Consumption()]: #
+[  - JSON and Text API Consumption(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2005%20JSON%20and%20TXT%20API%20Consumption.md)]: #
