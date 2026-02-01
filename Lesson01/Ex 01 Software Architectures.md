@@ -1,7 +1,7 @@
 ### Software Architectures
 Work in groups of 5.
 
-Match the following scenarios to the software architecture(s) that best fit them (monolith, N-tier, SOA, microservices, serverless, peer-to-peer):
+Match the following scenarios to the software architecture(s) that best fit them (monolith, N-tier, Enterprise SOA, microservices, serverless, peer-to-peer):
 
 1. **Eksaminator**. Online exam submission system  
     The platform is used by students to upload assignments and by teachers to grade. Requirements:
@@ -50,6 +50,20 @@ Match the following scenarios to the software architecture(s) that best fit them
     - Real-time social features are out of scope
     - Content updates are infrequent (daily)
     - Back-office is small and can accept simple deployments
+
+### Solution
+1. **Eksaminator**
+    - Monolith or 3-tier: reliable, cost-effective, simple
+2. **Ride-Now**
+    - Microservices: isolatable domains, scalability demands
+3. **Stockflow**
+    - Enterprise SOA: integration of heterogeneous systems, business-level services, no big deployment needs, lax performance needs (batch processing)
+4. **Smart-Gallery**
+    - Serverless: intermittent workloads (cost model matches pattern), event-driven architecture (functionalities like tagging, uploading, or future features are triggered by events, so there are parallel workloads)
+    - Microservices: continuous evolution expected, independent scaling (automatic image recognition might use more resources than tagging)
+6. **Musik-Fest**
+    - N-Tier: clear separation UI (mobile app) - app logic - data, few services
+    - Monolith: alternative for the web version
 
 To assess the applicability of each architecture to each scenario, you may consider the following factors, among others:
 - Cost
