@@ -7,6 +7,7 @@
 [MVC demo]: #
 
 [SOA slides]: #
+[Maybe show API Consumption sample. My FE is the consumer, the 3 services are the providers, there is no broker(responsibility divided between API listings and my FE code)]: #
 [SOA in-class exercise]: #
 
 [### In-class exercises]: #
