@@ -1,4 +1,5 @@
 import { readFile } from "fs";
+import { it } from "vitest";
 
 interface ICompany {
     cvr: string;
@@ -11,7 +12,7 @@ interface ICompany {
 }
 
 function convert() {
-    readFile("danish_companies.txt", "utf-8", (err: Error, data: string) => {
+    readFile("danish_companies.txt", "utf-8", (err, data: string) => {
         if (err) throw err;
 
         const companies = data.split("~");
