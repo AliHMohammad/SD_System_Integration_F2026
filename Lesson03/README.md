@@ -2,6 +2,7 @@
 
 # Lesson 3 - 12 February
 
+[Download Message Queues.pptx]: #
 [Solutions CSV parsing, YAML parsing, GitHub API]: #
 
 [XML from XSD]: #
