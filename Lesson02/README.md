@@ -30,6 +30,7 @@
           - [BBC News](http://feeds.bbci.co.uk/news/rss.xml)
           - [ArXiv](http://export.arxiv.org/api/query?search_query=all:AI)
       - JSON file: [albums.json](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/albums.json)
+  - **XML**, until and including *XML Libraries*
 - Do the following exercises:
   - [CSV File Parsing](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2003%20CSV%20File%20Parsing.md)
   - [YAML File Parsing](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2004%20YAML%20File%20Parsing.md)
