@@ -81,5 +81,6 @@ You are designing integrations for a medium-sized hospital. When a patient arriv
 
 3. Diagram
 
-    <img width="974" height="466" alt="image" src="https://github.com/user-attachments/assets/98e528d2-db71-4fad-84ad-ad3022be1ff1" />
+    <img width="826" height="445" alt="image" src="https://github.com/user-attachments/assets/7c8d4a76-8c9f-441e-9a24-75195a28a627" />
+
 
