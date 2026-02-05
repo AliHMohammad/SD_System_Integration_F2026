@@ -2,14 +2,9 @@
 
 # Lesson 2 - 5 February
 
-[SOA slides]: #
-[Maybe show API Consumption sample. My FE is the consumer, the 3 services are the providers, there is no broker(responsibility divided between API listings and my FE code)]: #
-[SOA in-class exercise]: #
-
 ### In-class exercises
 - [Service-Oriented Architecture](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2001%20SOA.md)
-  
-[- TXT File Parsing(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2002%20TXT%20File%20Parsing.md)]: #
+- [TXT File Parsing](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2002%20TXT%20File%20Parsing.md)
 [- CSV File Parsing(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2003%20CSV%20File%20Parsing.md)]: #
 [- YAML File Parsing(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2004%20YAML%20File%20Parsing.md)]: #
 
