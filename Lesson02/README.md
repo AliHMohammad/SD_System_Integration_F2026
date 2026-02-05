@@ -6,9 +6,6 @@
 - [Service-Oriented Architecture](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2001%20SOA.md)
 - [TXT File Parsing](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2002%20TXT%20File%20Parsing.md)
 
-[- CSV File Parsing(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2003%20CSV%20File%20Parsing.md)]: #
-[- YAML File Parsing(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2004%20YAML%20File%20Parsing.md)]: #
-
 ### Homework
 - Check out the following slide sets:
   - **Software Architectures**, focused on the section *UI Patterns*
@@ -33,6 +30,7 @@
           - [BBC News](http://feeds.bbci.co.uk/news/rss.xml)
           - [ArXiv](http://export.arxiv.org/api/query?search_query=all:AI)
       - JSON file: [albums.json](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/albums.json)
-
-[- Do the following exercises:]: #
-[  - JSON and Text API Consumption(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2005%20JSON%20and%20TXT%20API%20Consumption.md)]: #
+- Do the following exercises:
+  - [CSV File Parsing](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2003%20CSV%20File%20Parsing.md)
+  - [YAML File Parsing](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2004%20YAML%20File%20Parsing.md)
+  - [JSON and Text API Consumption](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2005%20JSON%20and%20TXT%20API%20Consumption.md)
