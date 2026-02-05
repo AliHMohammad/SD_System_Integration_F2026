@@ -5,6 +5,7 @@
 ### In-class exercises
 - [Service-Oriented Architecture](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2001%20SOA.md)
 - [TXT File Parsing](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2002%20TXT%20File%20Parsing.md)
+
 [- CSV File Parsing(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2003%20CSV%20File%20Parsing.md)]: #
 [- YAML File Parsing(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson02/Ex%2004%20YAML%20File%20Parsing.md)]: #
 
