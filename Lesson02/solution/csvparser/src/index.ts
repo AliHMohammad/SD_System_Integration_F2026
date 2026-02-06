@@ -12,13 +12,20 @@ interface ICompany {
 }
 
 function convert(args: string[]) {
-    const file = args[0] ?? "";
+    const file = args[0];
 
-    csv()
-        .fromFile(file)
-        .then((json: ICompany[]) => {
-            console.log(json);
-        });
+    if (!file) throw new Error("Define a file to convert");
+
+    try {
+        csv()
+            .fromFile(file)
+            .then((json: ICompany[]) => {
+                console.log(json);
+            });
+    } catch (error) {
+        console.error("Could not convert " + file + "to JSON");
+        throw error;
+    }
 }
 
 convert(process.argv.slice(2));
