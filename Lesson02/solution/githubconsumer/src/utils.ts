@@ -2,7 +2,6 @@ import readline from "readline";
 import { Octokit } from "@octokit/core";
 import "dotenv/config";
 
-// Create an interface for input and output
 export const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout,
