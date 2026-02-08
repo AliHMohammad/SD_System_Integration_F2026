@@ -37,9 +37,6 @@ export async function getPath(username: string, repo: string, path?: string) {
 }
 
 export async function getContent(url: string): Promise<string> {
-    const finalURL = `${url.replace("/blob", "").replace("https://github", "https://raw.githubusercontent")}`;
-
-    const result = await fetch(finalURL);
-
+    const result = await fetch(url);
     return result.text();
 }

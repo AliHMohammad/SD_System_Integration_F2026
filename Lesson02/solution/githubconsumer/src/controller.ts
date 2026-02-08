@@ -3,7 +3,7 @@ import { initialRender, renderContent, renderRepositories } from "./view.js";
 
 let USERNAME = "";
 let REPOSITORIES: IRepository[] = [];
-let REPOSITORY: IRepository;
+let REPOSITORY_NAME: string;
 
 export async function init() {
     await initialRender();
@@ -25,6 +25,7 @@ export async function handleUsername(username: string) {
 
 export async function handleRepository(repository: string, path?: string) {
     try {
+        REPOSITORY_NAME = repository;
         const content = await getPath(USERNAME, repository, path ?? "");
         await renderContent(content);
     } catch (error: any) {
@@ -36,9 +37,14 @@ export async function handleRepository(repository: string, path?: string) {
     }
 }
 
+export async function handlePath(content: IContent) {
+    await handleRepository(REPOSITORY_NAME, content.path);
+}
+
 export async function handleContent(content: IContent) {
     try {
-        const output = await getContent(content.html_url);
+        const url = `${content.html_url.replace("/blob", "").replace("https://github", "https://raw.githubusercontent")}`;
+        const output = await getContent(url);
         console.log(output);
     } catch (error: any) {
         if (error.status === 404) {
