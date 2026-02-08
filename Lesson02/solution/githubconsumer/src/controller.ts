@@ -2,8 +2,7 @@ import { getContent, getPath, getRepositories, type IContent, type IRepository }
 import { initialRender, renderContent, renderRepositories } from "./view.js";
 
 let USERNAME = "";
-let REPOSITORIES: IRepository[] = [];
-let REPOSITORY_NAME: string;
+let REPOSITORY: IRepository;
 
 export async function init() {
     await initialRender();
@@ -12,8 +11,8 @@ export async function init() {
 export async function handleUsername(username: string) {
     try {
         USERNAME = username;
-        REPOSITORIES = await getRepositories(username);
-        await renderRepositories(REPOSITORIES);
+        const repositories = await getRepositories(username);
+        await renderRepositories(repositories);
     } catch (error: any) {
         if (error.status === 404) {
             console.log(`User "${username}" not found. Please try again.`);
@@ -23,10 +22,10 @@ export async function handleUsername(username: string) {
     }
 }
 
-export async function handleRepository(repository: string, path?: string) {
+export async function handleRepository(repository: IRepository, path?: string) {
     try {
-        REPOSITORY_NAME = repository;
-        const content = await getPath(USERNAME, repository, path ?? "");
+        REPOSITORY = repository;
+        const content = await getPath(USERNAME, repository.name, path ?? "");
         await renderContent(content);
     } catch (error: any) {
         if (error.status === 404) {
@@ -38,7 +37,7 @@ export async function handleRepository(repository: string, path?: string) {
 }
 
 export async function handlePath(content: IContent) {
-    await handleRepository(REPOSITORY_NAME, content.path);
+    await handleRepository(REPOSITORY, content.path);
 }
 
 export async function handleContent(content: IContent) {

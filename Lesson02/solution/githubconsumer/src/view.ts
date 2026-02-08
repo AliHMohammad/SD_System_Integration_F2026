@@ -16,7 +16,10 @@ export async function renderRepositories(repos: IRepository[]) {
         console.log("- " + repo.name);
     }
 
-    const repository = await readInput("\nSelect repository: ");
+    const input = await readInput("\nSelect repository: ");
+
+    const repository = repos.find((r) => r.name == input)!;
+
     await handleRepository(repository);
 }
 
