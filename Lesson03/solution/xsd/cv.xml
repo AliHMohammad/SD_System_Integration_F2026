@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cv xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="cv.xsd">
+
+    <!-- =================== Personal information =================== -->
+    <personal>
+        <firstname>Anders</firstname>
+        <lastname>Jensen</lastname>
+        <dob>1990-05-15</dob>
+        <placeOfBirth>Copenhagen</placeOfBirth>
+        <nationality>Danish</nationality>
+        <nationality>Swedish</nationality>
+        <cpr>150590-1234</cpr>
+        <picture>anders_jensen.jpg</picture>
+    </personal>
+
+    <!-- ==================== Contact information ================== -->
+    <contact>
+        <street>Nørrebrogade</street>
+        <number>42</number>
+        <furtherInfo>2. th.</furtherInfo>
+        <postalCode>2200</postalCode>
+        <email>anders.jensen@example.com</email>
+        <phone>+45 12 34 56 78</phone>
+        <linkedin>https://www.linkedin.com/in/andersjensen</linkedin>
+    </contact>
+
+    <!-- ================== Academic background ==================== -->
+    <academicBackground>
+        <degree>
+            <name>Bachelor of Science in Computer Science</name>
+            <institution>University of Copenhagen</institution>
+            <graduationYear>2013</graduationYear>
+        </degree>
+        <degree>
+            <name>Master of Science in Software Engineering</name>
+            <institution>Technical University of Denmark</institution>
+            <graduationYear>2015</graduationYear>
+        </degree>
+    </academicBackground>
+
+    <!-- ======================== Languages ======================== -->
+    <languages>
+        <language>
+            <name>Danish</name>
+            <motherTongue>true</motherTongue>
+        </language>
+        <language>
+            <name>English</name>
+            <motherTongue>false</motherTongue>
+            <level>high</level>
+        </language>
+        <language>
+            <name>German</name>
+            <motherTongue>false</motherTongue>
+            <level>intermediate</level>
+        </language>
+    </languages>
+
+    <!-- ====================== Work history ======================= -->
+    <workHistory>
+        <position>
+            <company>Novo Nordisk A/S</company>
+            <jobTitle>Software Engineer</jobTitle>
+            <startDate>2015-08</startDate>
+            <endDate>2019-03</endDate>
+        </position>
+        <position>
+            <company>Maersk Technology</company>
+            <jobTitle>Senior Software Engineer</jobTitle>
+            <startDate>2019-04</startDate>
+            <!-- No endDate: current position -->
+        </position>
+    </workHistory>
+
+    <!-- ======================== Hobbies ========================= -->
+    <hobbies>
+        <hobby>Cycling</hobby>
+        <hobby>Photography</hobby>
+        <hobby>Chess</hobby>
+    </hobbies>
+
+</cv>

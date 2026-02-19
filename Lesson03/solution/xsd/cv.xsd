@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!-- ======================== Root element ======================== -->
+    <xs:element name="cv">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personal"          type="personalType"/>
+                <xs:element name="contact"           type="contactType"/>
+                <xs:element name="academicBackground" type="academicBackgroundType"/>
+                <xs:element name="languages"         type="languagesType"/>
+                <xs:element name="workHistory"       type="workHistoryType"/>
+                <xs:element name="hobbies"           type="hobbiesType" minOccurs="0"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- ==================== Simple / shared types =================== -->
+
+    <!-- Danish CPR: DDMMYY-XXXX or DDMMYYXXXX -->
+    <xs:simpleType name="cprType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{6}-?\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Danish postal code: exactly 4 digits -->
+    <xs:simpleType name="postalCodeType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Basic e-mail address -->
+    <xs:simpleType name="emailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Language proficiency level (only used when motherTongue is false) -->
+    <xs:simpleType name="languageLevelType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="high"/>
+            <xs:enumeration value="intermediate"/>
+            <xs:enumeration value="low"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- =================== Personal information ==================== -->
+    <xs:complexType name="personalType">
+        <xs:sequence>
+            <xs:element name="firstname"    type="xs:string"/>
+            <xs:element name="lastname"     type="xs:string"/>
+            <xs:element name="dob"          type="xs:date"/>
+            <xs:element name="placeOfBirth" type="xs:string"/>
+            <!-- One or more nationalities -->
+            <xs:element name="nationality"  type="xs:string" maxOccurs="unbounded"/>
+            <xs:element name="cpr"          type="cprType"/>
+            <xs:element name="picture"      type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ==================== Contact information ==================== -->
+    <xs:complexType name="contactType">
+        <xs:sequence>
+            <xs:element name="street"      type="xs:string"/>
+            <xs:element name="number"      type="xs:string"/>
+            <!-- Optional door/floor/extra address info -->
+            <xs:element name="furtherInfo" type="xs:string" minOccurs="0"/>
+            <xs:element name="postalCode"  type="postalCodeType"/>
+            <xs:element name="email"       type="emailType"/>
+            <xs:element name="phone"       type="xs:string"/>
+            <!-- Optional LinkedIn profile URL -->
+            <xs:element name="linkedin"    type="xs:anyURI" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ================== Academic background ====================== -->
+    <xs:complexType name="academicBackgroundType">
+        <xs:sequence>
+            <xs:element name="degree" type="degreeType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="degreeType">
+        <xs:sequence>
+            <xs:element name="name"           type="xs:string"/>
+            <xs:element name="institution"    type="xs:string"/>
+            <xs:element name="graduationYear" type="xs:gYear"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ======================== Languages ========================== -->
+    <xs:complexType name="languagesType">
+        <xs:sequence>
+            <xs:element name="language" type="languageType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!--
+        level is optional: it SHOULD be provided when motherTongue is false
+        and SHOULD be omitted when motherTongue is true.
+        Full conditional enforcement requires XSD 1.1 assertions; here we
+        mark it minOccurs="0" and rely on the enumeration for valid values.
+    -->
+    <xs:complexType name="languageType">
+        <xs:sequence>
+            <xs:element name="name"        type="xs:string"/>
+            <xs:element name="motherTongue" type="xs:boolean"/>
+            <xs:element name="level"       type="languageLevelType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ====================== Work history ========================= -->
+    <xs:complexType name="workHistoryType">
+        <xs:sequence>
+            <xs:element name="position" type="positionType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="positionType">
+        <xs:sequence>
+            <xs:element name="company"   type="xs:string"/>
+            <xs:element name="jobTitle"  type="xs:string"/>
+            <xs:element name="startDate" type="xs:gYearMonth"/>
+            <!-- endDate is omitted for a current position -->
+            <xs:element name="endDate"   type="xs:gYearMonth" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- ========================= Hobbies =========================== -->
+    <xs:complexType name="hobbiesType">
+        <xs:sequence>
+            <xs:element name="hobby" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
