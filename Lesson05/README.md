@@ -3,3 +3,5 @@
 # Lesson 5 - 5 March
 
 [Download Message Queues.pptx, XML.pptx, TCP/IP.pptx, Message Queues.pptx]: #
+
+[Rescheduling: Propose 16 Mar]: #
