@@ -32,8 +32,46 @@ const generateTaskLinks = (taskId: number, req: Request) => {
     };
 };
 
-// Helper function to generate collection links
-const generateCollectionLinks = (req: Request) => {
+// Helper function to generate collection links with pagination
+const generateCollectionLinks = (req: Request, pageNum: number, pageSize: number, totalPages: number) => {
+    const baseUrl = `${req.protocol}://${req.get("host")}`;
+    const links: any = {
+        self: {
+            href: `${baseUrl}/tasks?pageNum=${pageNum}&pageSize=${pageSize}`,
+            method: "GET",
+        },
+        create: { href: `${baseUrl}/tasks`, method: "POST" },
+        first: {
+            href: `${baseUrl}/tasks?pageNum=1&pageSize=${pageSize}`,
+            method: "GET",
+        },
+        last: {
+            href: `${baseUrl}/tasks?pageNum=${totalPages}&pageSize=${pageSize}`,
+            method: "GET",
+        },
+    };
+
+    // Add previous page link if not on first page
+    if (pageNum > 1) {
+        links.prev = {
+            href: `${baseUrl}/tasks?pageNum=${pageNum - 1}&pageSize=${pageSize}`,
+            method: "GET",
+        };
+    }
+
+    // Add next page link if not on last page
+    if (pageNum < totalPages) {
+        links.next = {
+            href: `${baseUrl}/tasks?pageNum=${pageNum + 1}&pageSize=${pageSize}`,
+            method: "GET",
+        };
+    }
+
+    return links;
+};
+
+// Helper function to generate simple collection links (without pagination)
+const generateSimpleCollectionLinks = (req: Request) => {
     const baseUrl = `${req.protocol}://${req.get("host")}`;
     return {
         self: { href: `${baseUrl}/tasks`, method: "GET" },
@@ -41,11 +79,39 @@ const generateCollectionLinks = (req: Request) => {
     };
 };
 
-// GET /tasks - Retrieve all tasks
+// GET /tasks - Retrieve all tasks with pagination
 app.get("/tasks", (req: Request, res: Response) => {
     const baseUrl = `${req.protocol}://${req.get("host")}`;
 
-    const tasksWithLinks = tasks.map((task) => ({
+    // Parse pagination parameters with defaults
+    const pageNum = parseInt(req.query.pageNum as string) || 1;
+    const pageSize = parseInt(req.query.pageSize as string) || 10;
+
+    // Validate pagination parameters
+    if (pageNum < 1) {
+        return res.status(400).json({
+            error: "Bad Request",
+            message: "pageNum must be greater than or equal to 1",
+        });
+    }
+
+    if (pageSize < 1 || pageSize > 100) {
+        return res.status(400).json({
+            error: "Bad Request",
+            message: "pageSize must be between 1 and 100",
+        });
+    }
+
+    // Calculate pagination
+    const totalItems = tasks.length;
+    const totalPages = Math.ceil(totalItems / pageSize);
+    const startIndex = (pageNum - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    // Get paginated tasks
+    const paginatedTasks = tasks.slice(startIndex, endIndex);
+
+    const tasksWithLinks = paginatedTasks.map((task) => ({
         ...task,
         links: generateTaskLinks(task.id, req),
     }));
@@ -53,10 +119,18 @@ app.get("/tasks", (req: Request, res: Response) => {
     res.json({
         data: {
             tasks: tasksWithLinks,
-            count: tasks.length,
+            count: tasksWithLinks.length,
         },
         metadata: {
-            links: generateCollectionLinks(req),
+            pagination: {
+                currentPage: pageNum,
+                pageSize: pageSize,
+                totalItems: totalItems,
+                totalPages: totalPages,
+                hasNextPage: pageNum < totalPages,
+                hasPreviousPage: pageNum > 1,
+            },
+            links: generateCollectionLinks(req, pageNum, pageSize, totalPages),
         },
     });
 });
@@ -157,7 +231,7 @@ app.delete("/tasks/:id", (req: Request, res: Response) => {
             task: deletedTask,
         },
         metadata: {
-            links: generateCollectionLinks(req),
+            links: generateSimpleCollectionLinks(req),
         },
     });
 });
