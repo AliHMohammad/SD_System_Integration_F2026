@@ -13,17 +13,17 @@ Write code in the programming language of your choice that generates a WSDL docu
       - `flightNumber`. Can contain alphanumeric characters
       - `departDateTime`
       - `arriveDateTime`
-      - `origin`. IataCode
-      - `destination`. IataCode
-      - `price`. Money
+      - `origin`. `IataCode`
+      - `destination`. `IataCode`
+      - `price`. `Money`
 - Messages
   - `SearchFlightsRequest`. Fields:
-    - `origin`. IataCode
-    - `destination`. IataCode
+    - `origin`. `IataCode`
+    - `destination`. `IataCode`
     - `departureDate`
     - `returnDate`
-    - `passengers`. PassengerCount
-    - `cabin`. CabinClass
+    - `passengers`. `PassengerCount`
+    - `cabin`. `CabinClass`
   - `SearchFlightsResponse`. Fields:
     - `flights`. List of `Flight`
    
