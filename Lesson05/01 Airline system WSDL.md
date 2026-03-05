@@ -25,6 +25,6 @@ Write code in the programming language of your choice that generates a WSDL docu
     - `passengers`. PassengerCount
     - `cabin`. CabinClass
   - `SearchFlightsResponse`. Fields:
-    - `flights`. List of Flight
+    - `flights`. List of `Flight`
    
 No regEx is necessary.
