@@ -2,9 +2,7 @@
 
 # Lesson 5 - 6 March
 
-[Rescheduling: 16 Mar]: #
 [rework rest api endpoint naming (personal-information)]: #
-[reupdate SOAP slides]: #
 [make the SOAP servers work in Postman]: #
 
 ### In-class exercise
