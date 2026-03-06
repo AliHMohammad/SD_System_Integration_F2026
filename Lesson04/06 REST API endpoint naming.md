@@ -61,6 +61,6 @@ If authentication is based on sessions:
   
 If authentication is based on tokens:
 - Logging in: `POST /auth/tokens`. This endpoint will return a token
-- Logging out `DELETE /auth/tokens/{sessionId}`. The server will delete a specific session
+- Logging out `DELETE /auth/tokens/{tokenId}`. The server will delete a specific session
 
 `/auth/login` and `/auth/logout` are widely used, but they contravene REST naming conventions by expressing operations/processes rather than resources.
