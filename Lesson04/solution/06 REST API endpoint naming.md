@@ -45,6 +45,8 @@ Write down the names of the following REST endpoints:
 `/cvs/id/degrees/id`
 
 - Logging in
-`/auth`
-- Logging out
-None. REST is stateless.
+POST `/auth/sessions` (sessions)
+POST `/auth/tokens` (tokens)
+- Logging out (assuming that we store the login session/token in a database)
+DELETE `/auth/sessions/id`
+DELETE `/auth/tokens/id`
