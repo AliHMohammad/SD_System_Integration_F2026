@@ -5,6 +5,7 @@
 [Rescheduling: 16 Mar]: #
 [rework rest api endpoint naming (personal-information)]: #
 [reupdate SOAP slides]: #
+[make the SOAP servers work in Postman]: #
 
 ### In-class exercise
 - [Airline system WSDL generation](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson05/01%20Airline%20system%20WSDL.md)
