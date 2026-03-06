@@ -3,10 +3,10 @@
 # Lesson 5 - 6 March
 
 [Download Message Queues.pptx, XML.pptx, TCP/IP.pptx, Message Queues.pptx, SOAP.pptx]: #
-[News: new uchef, new coordinator]: #
-[Ask whether they were allowed to choose internship supervisors]: #
 [Rescheduling: Propose 16 Mar]: #
 [Tomas says he will cover message queues practical training]: #
+[ask kvalitet whether classes can be streamed and recorded]: #
+[rework rest api endpoint naming]: #
 
 [Exercise solutions: HTTP response inspection app (JS+Python), HTTP server, REST endpoint naming, To Do list, To Do list v2]: #
 
