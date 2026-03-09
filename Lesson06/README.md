@@ -4,6 +4,7 @@
 
 [Download SOAP.pptx]: #
 [git pull all SOAP code samples]: #
+[Show solution to Bank account opening again, but now via Postman]: #
 [Show solution to Airline & Airline v2, including Postman collection]: #
 
 [GraphQL slides]: #
