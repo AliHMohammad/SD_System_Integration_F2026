@@ -3,7 +3,7 @@
 # Lesson 6 - 12 March
 
 [top-up infomøde 7.mai (17.30)16.30-18.00. Any student? Will be paid: de får timeløn for deltagelse + en times forberedelse. Ca. 140 kr. I timen før SKAT]: #
-[Download SOAP.pptx]: #
+[Download SOAP.pptx GraphQL.pptx]: #
 [git pull all SOAP code samples]: #
 [Show solution to Bank account opening again, but now via Postman]: #
 [Show solution to Airline & Airline v2, including Postman collection]: #
