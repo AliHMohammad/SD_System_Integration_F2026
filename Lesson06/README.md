@@ -16,7 +16,6 @@
   - [Photo Albums playground](https://graphqlzero.almansi.me/api)
   - [Company playground](https://www.devtoolsdaily.com/graphql/playground/)
   - [Hypgraph's Movies playground](https://hygraph.com/graphql-playground)
-- 
 
 ### Homework
 
