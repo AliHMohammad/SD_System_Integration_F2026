@@ -5,8 +5,6 @@
 [Write in Teams: top-up infomøde 7.mai (17.30)16.30-18.00. Any student? Will be paid: de får timeløn for deltagelse + en times forberedelse. Ca. 140 kr. I timen før SKAT]: #
 [git pull GraphQL samples]: #
 
-[GraphQL slides]: #
-
 ### In-class exercises
 
 - [Countries: GraphQL practice](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson06/01%20Countries.md)
