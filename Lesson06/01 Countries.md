@@ -153,7 +153,45 @@ query($showLanguages: Boolean!, $filter: CountryFilterInput) {
 
 8. A company wants to list primary market countries (those in a specific continent that use a specific currency) and secondary markets (those in the rest of continents that use that specific currency). For each country, the following attributes will be shown: code, name, capital, and continent name. Write a query to solve this problem using a fragment
 
+# Specific continent and currency. List countries
 
 ```graphql
+query($primaryFilter: CountryFilterInput, $secondaryFilter: CountryFilterInput) {
+  primary: countries(filter: $primaryFilter) {
+		...CountryFragment
+  }
+  secondary: countries(filter: $secondaryFilter) {
+		...CountryFragment
+  }
+}
 
+fragment CountryFragment on Country {
+    code
+    name
+    capital
+    continent {
+      name
+    }
+}
+
+## Variables
+
+{
+  "primaryFilter": {
+    "currency": {
+      "eq": "USD"
+    },
+    "continent": {
+      "eq": "NA"
+    }
+  },
+  "secondaryFilter": {
+    "currency": {
+      "eq": "USD"
+    },
+    "continent": {
+      "ne": "NA"
+    }
+  }
+}
 ```
