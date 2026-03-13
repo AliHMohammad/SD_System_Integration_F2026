@@ -1,19 +1,41 @@
 type Book {
-    title: String
-    author: String
+    title: String!
+    author: String!
 }
 
-type AddBookMutationResponse {
+type Task {
+    title: String!
+    completed: Boolean!
+}
+
+interface MutationResponse {
     success: Boolean!
     message: String!
-    book: Book
 }
 
+type BookMutationResponse implements MutationResponse {
+    success: Boolean!
+    message: String!
+    data: Book
+}
+
+type TaskMutationResponse implements MutationResponse {
+    success: Boolean!
+    message: String!
+    data: Task
+}
+
+
 type Query {
-    books: [Book]
-    book(title: String): Book
+    books: [Book]!
+    book(title: String!): Book
+    tasks: [Task]!
+    task(title: String!): Task
 }
 
 type Mutation {
-    addBook(title: String, author: String): AddBookMutationResponse
+    addBook(title: String!, author: String!): BookMutationResponse!
+    addTask(title: String!, completed: Boolean): TaskMutationResponse!
+    updateTask(title: String!, newTitle: String!, completed: Boolean!): TaskMutationResponse!
+    deleteTask(title: String!): TaskMutationResponse!
 }

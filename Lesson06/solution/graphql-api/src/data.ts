@@ -17,3 +17,10 @@ export const books = [
     { title: "Don Quixote", author: "Miguel de Cervantes" },
     { title: "The Brothers Karamazov", author: "Fyodor Dostoevsky" },
 ];
+
+export const tasks = [
+    { title: "Learn GraphQL", completed: false },
+    { title: "Build a GraphQL API", completed: true },
+    { title: "Test the API", completed: false },
+    { title: "Keep learning", completed: false },
+];

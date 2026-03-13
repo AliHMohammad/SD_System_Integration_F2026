@@ -6,6 +6,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type RequireFields<T, K extends keyof T> = Omit<T, K> & { [P in K]-?: NonNullable<T[P]> };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string; }
@@ -15,39 +16,85 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
-export type AddBookMutationResponse = {
-  __typename?: 'AddBookMutationResponse';
-  book?: Maybe<Book>;
+export type Book = {
+  __typename?: 'Book';
+  author: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type BookMutationResponse = MutationResponse & {
+  __typename?: 'BookMutationResponse';
+  data?: Maybe<Book>;
   message: Scalars['String']['output'];
   success: Scalars['Boolean']['output'];
 };
 
-export type Book = {
-  __typename?: 'Book';
-  author?: Maybe<Scalars['String']['output']>;
-  title?: Maybe<Scalars['String']['output']>;
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
-  addBook?: Maybe<AddBookMutationResponse>;
+  addBook: BookMutationResponse;
+  addTask: TaskMutationResponse;
+  deleteTask: TaskMutationResponse;
+  updateTask: TaskMutationResponse;
 };
 
 
 export type MutationAddBookArgs = {
-  author?: InputMaybe<Scalars['String']['input']>;
-  title?: InputMaybe<Scalars['String']['input']>;
+  author: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+};
+
+
+export type MutationAddTaskArgs = {
+  completed?: InputMaybe<Scalars['Boolean']['input']>;
+  title: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteTaskArgs = {
+  title: Scalars['String']['input'];
+};
+
+
+export type MutationUpdateTaskArgs = {
+  completed: Scalars['Boolean']['input'];
+  newTitle: Scalars['String']['input'];
+  title: Scalars['String']['input'];
+};
+
+export type MutationResponse = {
+  message: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
 };
 
 export type Query = {
   __typename?: 'Query';
   book?: Maybe<Book>;
-  books?: Maybe<Array<Maybe<Book>>>;
+  books: Array<Maybe<Book>>;
+  task?: Maybe<Task>;
+  tasks: Array<Maybe<Task>>;
 };
 
 
 export type QueryBookArgs = {
-  title?: InputMaybe<Scalars['String']['input']>;
+  title: Scalars['String']['input'];
+};
+
+
+export type QueryTaskArgs = {
+  title: Scalars['String']['input'];
+};
+
+export type Task = {
+  __typename?: 'Task';
+  completed: Scalars['Boolean']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type TaskMutationResponse = MutationResponse & {
+  __typename?: 'TaskMutationResponse';
+  data?: Maybe<Task>;
+  message: Scalars['String']['output'];
+  success: Scalars['Boolean']['output'];
 };
 
 
@@ -120,51 +167,89 @@ export type DirectiveResolverFn<TResult = Record<PropertyKey, never>, TParent = 
 
 
 
+/** Mapping of interface types */
+export type ResolversInterfaceTypes<_RefType extends Record<string, unknown>> = {
+  MutationResponse:
+    | ( BookMutationResponse )
+    | ( TaskMutationResponse )
+  ;
+};
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  AddBookMutationResponse: ResolverTypeWrapper<AddBookMutationResponse>;
   Book: ResolverTypeWrapper<Book>;
+  BookMutationResponse: ResolverTypeWrapper<BookMutationResponse>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   Mutation: ResolverTypeWrapper<Record<PropertyKey, never>>;
+  MutationResponse: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['MutationResponse']>;
   Query: ResolverTypeWrapper<Record<PropertyKey, never>>;
   String: ResolverTypeWrapper<Scalars['String']['output']>;
+  Task: ResolverTypeWrapper<Task>;
+  TaskMutationResponse: ResolverTypeWrapper<TaskMutationResponse>;
 };
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
-  AddBookMutationResponse: AddBookMutationResponse;
   Book: Book;
+  BookMutationResponse: BookMutationResponse;
   Boolean: Scalars['Boolean']['output'];
   Mutation: Record<PropertyKey, never>;
+  MutationResponse: ResolversInterfaceTypes<ResolversParentTypes>['MutationResponse'];
   Query: Record<PropertyKey, never>;
   String: Scalars['String']['output'];
-};
-
-export type AddBookMutationResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['AddBookMutationResponse'] = ResolversParentTypes['AddBookMutationResponse']> = {
-  book?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType>;
-  message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  success?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  Task: Task;
+  TaskMutationResponse: TaskMutationResponse;
 };
 
 export type BookResolvers<ContextType = any, ParentType extends ResolversParentTypes['Book'] = ResolversParentTypes['Book']> = {
-  author?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  title?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  author?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type BookMutationResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['BookMutationResponse'] = ResolversParentTypes['BookMutationResponse']> = {
+  data?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType>;
+  message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  success?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  addBook?: Resolver<Maybe<ResolversTypes['AddBookMutationResponse']>, ParentType, ContextType, Partial<MutationAddBookArgs>>;
+  addBook?: Resolver<ResolversTypes['BookMutationResponse'], ParentType, ContextType, RequireFields<MutationAddBookArgs, 'author' | 'title'>>;
+  addTask?: Resolver<ResolversTypes['TaskMutationResponse'], ParentType, ContextType, RequireFields<MutationAddTaskArgs, 'title'>>;
+  deleteTask?: Resolver<ResolversTypes['TaskMutationResponse'], ParentType, ContextType, RequireFields<MutationDeleteTaskArgs, 'title'>>;
+  updateTask?: Resolver<ResolversTypes['TaskMutationResponse'], ParentType, ContextType, RequireFields<MutationUpdateTaskArgs, 'completed' | 'newTitle' | 'title'>>;
+};
+
+export type MutationResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['MutationResponse'] = ResolversParentTypes['MutationResponse']> = {
+  __resolveType: TypeResolveFn<'BookMutationResponse' | 'TaskMutationResponse', ParentType, ContextType>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
-  book?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, Partial<QueryBookArgs>>;
-  books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
+  book?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QueryBookArgs, 'title'>>;
+  books?: Resolver<Array<Maybe<ResolversTypes['Book']>>, ParentType, ContextType>;
+  task?: Resolver<Maybe<ResolversTypes['Task']>, ParentType, ContextType, RequireFields<QueryTaskArgs, 'title'>>;
+  tasks?: Resolver<Array<Maybe<ResolversTypes['Task']>>, ParentType, ContextType>;
+};
+
+export type TaskResolvers<ContextType = any, ParentType extends ResolversParentTypes['Task'] = ResolversParentTypes['Task']> = {
+  completed?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+};
+
+export type TaskMutationResponseResolvers<ContextType = any, ParentType extends ResolversParentTypes['TaskMutationResponse'] = ResolversParentTypes['TaskMutationResponse']> = {
+  data?: Resolver<Maybe<ResolversTypes['Task']>, ParentType, ContextType>;
+  message?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  success?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type Resolvers<ContextType = any> = {
-  AddBookMutationResponse?: AddBookMutationResponseResolvers<ContextType>;
   Book?: BookResolvers<ContextType>;
+  BookMutationResponse?: BookMutationResponseResolvers<ContextType>;
   Mutation?: MutationResolvers<ContextType>;
+  MutationResponse?: MutationResponseResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  Task?: TaskResolvers<ContextType>;
+  TaskMutationResponse?: TaskMutationResponseResolvers<ContextType>;
 };
 
