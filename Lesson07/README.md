@@ -2,6 +2,10 @@
 
 # Lesson 7 - 16 March
 
+[Download gRPC slides]: #
+[git pull all code samples]: #
+[Make sure that grpcurl is installed: https://github.com/fullstorydev/grpcurl]: #
+
 [Homework solutions: Countries queries, Movie Streaming part II queries, ask about how they solved Books, Tasks]: #
 
 [Slides: gRPC]: #
