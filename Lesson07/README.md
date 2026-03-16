@@ -23,3 +23,4 @@ The best programming language to Work with gRPC is Go (Golang). If you want to g
   - [Greeter service (Go)](https://github.com/arturomorarioja/go_grpc_greeter_src). You can follow the README to generate the stubs and package
   - [Greeter service (Go)](https://github.com/arturomorarioja/go_grpc_greeter). Ready-made version
   - [Rides (Python)](https://github.com/arturomorarioja/py_grpc_rides). Follow the README to try partial demos, then run the client's unary `Start` request and streaming `Track` request
+- Finish the [Echo](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson07/02%20Echo.md) exercise if you did not have enough time in class
