@@ -2,6 +2,11 @@
 
 # Lesson 8 - 19 March
 
+[Going through the security attacks took forever. No time for the second in-class exercise]: #
+[]: #
+[]: #
+[]: #
+
 ### In-class exercise
 - [Security Attacks](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson08/01%20Security%20Attacks.md)
 
