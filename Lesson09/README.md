@@ -3,7 +3,7 @@
 # Lesson 9 - 26 March
 
 [Download API Security slides]: #
-[git pull js_sop_cors]: #
+[git pull/clone js_sop_cors, js_cors_preflight]: #
 
 [Homework solutions: Bearer token / then Secure API]: #
 
