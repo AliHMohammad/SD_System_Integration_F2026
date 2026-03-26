@@ -10,6 +10,9 @@
   - CORS
   - JWT authentication
   - OAuth2/OIDC authentication/authorization
+- Check out the following code samples
+  - [SOP](https://github.com/arturomorarioja/js_sop_cors)
+  - [CORS preflight requests](https://github.com/arturomorarioja/js_cors_preflight)
 - Solve the following exercises:
   - [JWT To Do list](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson09/02%20JWT%20To%20Do%20list.md)
   - [OAuth2 To Do list](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson09/03%20OAuth2%20To%20Do%20list.md)
