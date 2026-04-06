@@ -1,6 +1,7 @@
 import "dotenv/config";
 import type { NextFunction, Request, Response } from "express";
 import { jwtVerify } from "jose";
+import { redisClient } from "../helpers/redisClient";
 
 export default async function authToken(req: Request, res: Response, next: NextFunction) {
     const authHeader = req.headers.authorization;
@@ -21,6 +22,12 @@ export default async function authToken(req: Request, res: Response, next: NextF
     try {
         const secret = new TextEncoder().encode(process.env.JWT_SECRET);
         const { payload } = await jwtVerify(token, secret);
+
+        // JWT Whitelist authentication 
+        const exists = await redisClient.get(`user:${payload.sub}:token`)
+        if (!exists) {
+            return res.status(401).json({ message: "Something went wrong. Try logging in again." });
+        }
 
         res.locals.user = payload;
         return next();

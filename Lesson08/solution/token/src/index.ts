@@ -38,18 +38,18 @@ app.post("/auth/login", async (req: Request<{}, {}, ILoginDTO, {}>, res: Respons
         return res.status(401).json({ message: "invalid credentials" });
     }
 
-    const jwt = await generateJWT(user.username);
+    const { token, jti } = await generateJWT(user.username);
 
     try {
         await ensureRedisConnection();
-        await redisClient.set(`user:${username}:token`, jwt, {
-            EX: 60 * 15,
+        await redisClient.set(`user:${username}:token`, jti, {
+            expiration: { type: "EX", value: 60 * 30 },
         });
     } catch {
         return res.status(500).json({ message: "failed to save session" });
     }
 
-    return res.status(200).json({ token: jwt });
+    return res.status(200).json({ token: token });
 });
 
 app.delete("/auth/logout", authToken, async (_req: Request, res: Response) => {
