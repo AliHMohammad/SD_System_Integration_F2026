@@ -3,6 +3,7 @@
 # Lesson 11 - 16 April
 
 [Download OpenAPI slides]: #
+[git pull teams_api_openapi]: #
 
 [  - Book resource(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson11/01%20Book%20resource.md)]: #
 [  - Online teaching system(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson11/02%20Online%20teaching%20system.md)]: #
