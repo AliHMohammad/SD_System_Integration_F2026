@@ -4,7 +4,7 @@
 
 [Solve OpenAPI exercises: Hiking, Travel, Pixel-art, Recruitment, To Do List]: #
 
-[WebSockets slides, demos, in-class ex]: #
+[WebSockets slides, demos, in-class ex(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson12/01%20Voting.md)]: #
 [Show course outline]: #
 [Slides on System Integration Strategies]: #
 
