@@ -1,0 +1,61 @@
+:root {
+    --colorMain: black;
+    --colorComplementary: floralwhite;
+    --colorContent: darkslategray;
+    --colorWarning: firebrick;
+
+    --fontNarrow: 'Arial Narrow', 'Segoe UI Condensed', 'Bahnschrift Condensed', 'Helvetica Neue Condensed', 'Liberation Sans Narrow', 'DejaVu Sans Condensed', sans-serif;
+    --fontVotes: Consolas, 'Courier New', monospace;
+}
+
+#buttons > div:first-of-type {
+    margin-bottom: 1rem;
+}
+
+#btnDisconnect {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: var(--colorComplementary);
+    background-color: var(--colorWarning);
+}
+
+.inline {
+    display: flex;
+    flex-flow: row nowrap;
+
+    > * {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+    }
+    
+    :not(.number) {
+        flex: 0 0 8rem;
+    }
+
+    .number {
+        padding: 0 0.5rem;
+        border-radius: 0.5rem;
+        color: var(--colorComplementary);
+        background-color: var(--colorContent);
+        font-family: var(--fontVotes);
+    }
+}
+
+#output {
+    max-height: 40vw;
+    padding: 0 1rem;
+    border: solid thin var(--colorMain);
+    border-radius: 0.3rem;
+    overflow: auto;
+
+    .timestamp {
+        font-size: 0.8rem;
+        font-weight: bold;
+        font-family: var(--fontNarrow);
+    }
+    .content {
+        text-indent: 2rem;
+        font-weight: bold;
+        color: var(--colorContent);
+    }
+}
