@@ -2,11 +2,13 @@
 
 # Lesson 12 - 23 April
 
-[Download WS slides]: #
 [Solve OpenAPI exercises: Hiking, Travel, Pixel-art, Recruitment, To Do List]: #
 
 [WebSockets slides, demos, in-class ex(https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson12/01%20Voting.md)]: #
 [  Demo: https://www.tradingview.com/chart/. Hide Console. Check Preserve log, Disable cache, WS and hard reload (Ctrl+Shift+R). Then check out the long body message, maybe copy-paste it in Notepad]: #
+
+### In-class exercise
+- WebSockets: [Voting](https://github.com/arturomorarioja-ek/SD_System_Integration_F2026/blob/main/Lesson12/01%20Voting.md)
 
 [Show course outline]: #
 [Slides on System Integration Strategies]: #
